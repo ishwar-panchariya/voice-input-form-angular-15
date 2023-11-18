@@ -1,0 +1,42 @@
+<section>
+  <h1>Sign Up Form</h1>
+</section>
+
+<form [formGroup]="signupForm" (ngSubmit)="submitForm()">
+  <div>
+    <label for="username">
+      Username
+      <input type="text" id="username" formControlName="username">
+    </label>
+
+    <div *ngIf="signupForm.controls['username'].errors?.['required'] && isSubmitted">
+      <span>Username is required.</span>
+    </div>
+  </div>
+  <div>
+    <label for="email">
+      Email
+      <input type="email" id="email" formControlName="email">
+    </label>
+
+    <div *ngIf="!signupForm.controls['email'].valid && isSubmitted">
+      <span *ngIf="signupForm.controls['email'].errors?.['required']">Email is required.</span>
+      <span *ngIf="signupForm.controls['email'].errors?.['email']">Invalid Email.</span>
+    </div>
+  </div>
+  <div>
+    <label for="password">
+      Password
+      <input type="password" id="password" formControlName="password">
+    </label>
+
+    <div *ngIf="!signupForm.controls['password'].valid && isSubmitted">
+      <span *ngIf="signupForm.controls['password'].errors?.['required']">Password is required.</span>
+    </div>
+  </div>
+
+  <div>
+    <button type="button">Cancel</button>
+    <button type="submit">Submit</button>
+  </div>
+</form>
