@@ -1,0 +1,7 @@
+<div [formGroup]="formGroup">
+    <label for="">{{label}}</label>
+    <input type="text" [formControlName]="control">
+    <div *ngIf="isSubmitted && formGroup.controls['username'].errors?.['required']" class="invalid-feedback">
+        <span *ngIf="formGroup.controls['username'].errors?.['required']">{{label}} is required.</span>
+    </div>
+</div>
