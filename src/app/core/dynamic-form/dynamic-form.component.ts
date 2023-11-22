@@ -7,7 +7,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class DynamicFormComponent {
 
-  signupForm: FormGroup = new FormGroup({
+  signupForm:FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
